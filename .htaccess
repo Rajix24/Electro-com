@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Ignore favicon.ico
+RewriteRule ^favicon\.ico$ - [L]
+
+# If file or directory exists, do not rewrite
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirect all requests to index.php
+RewriteRule ^ index.php [QSA,L]
